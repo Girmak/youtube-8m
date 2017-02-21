@@ -68,10 +68,10 @@ if __name__ == "__main__":
       "label_loss", "CrossEntropyLoss",
       "Which loss function to use for training the model.")
   flags.DEFINE_float(
-      "regularization_penalty", 1e-3,
+      "regularization_penalty", 1e-4,
       "How much weight to give to the regularization loss (the label loss has "
       "a weight of 1).")
-  flags.DEFINE_float("base_learning_rate", 0.01,
+  flags.DEFINE_float("base_learning_rate", 0.0025,
                      "Which learning rate to start with.")
 
   # Other flags.
@@ -168,10 +168,10 @@ def build_graph(reader,
                 model,
                 train_data_pattern,
                 label_loss_fn=losses.CrossEntropyLoss(),
-                batch_size=5000,
-                base_learning_rate=0.02,
+                batch_size=1000,
+                base_learning_rate=0.0025,
                 optimizer_class=tf.train.AdamOptimizer,
-                regularization_penalty=1e-3,
+                regularization_penalty=1e-4,
                 num_readers=1,
                 num_epochs=None):
   """Creates the Tensorflow graph.
