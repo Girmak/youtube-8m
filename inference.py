@@ -51,7 +51,7 @@ if __name__ == '__main__':
       "features. The model must also be set appropriately (i.e. to read 3D "
       "batches VS 4D batches.")
   flags.DEFINE_integer(
-      "batch_size", 16384, #8192,
+      "batch_size", 8192,
       "How many examples to process per batch.")
   flags.DEFINE_string("feature_names", "mean_rgb", "Name of the feature "
                       "to use for training.")
@@ -61,7 +61,7 @@ if __name__ == '__main__':
   # Other flags.
   flags.DEFINE_integer("num_readers", 1,
                        "How many threads to use for reading input files.")
-  flags.DEFINE_integer("top_k", 25,
+  flags.DEFINE_integer("top_k", 15,
                        "How many predictions to output per video.")
 
 def format_lines(video_ids, predictions, top_k):
